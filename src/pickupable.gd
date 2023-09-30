@@ -20,9 +20,13 @@ enum PickupableTags{
 	Hygiene = 200,
 	Clothing,
 	Food,
+	Exercise,
+	Entertainment,
 	
 	# Traits
 	Curved = 300,
+	Heavy,
+	Soft,
 }
 
 ## Ascii map of the shape in the grid. Each row represents the x axis, and each column represents the z axis.[br]
