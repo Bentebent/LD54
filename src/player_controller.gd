@@ -10,6 +10,8 @@ extends CharacterBody3D
 var target_velocity = Vector3.ZERO
 var picked_up_item = null
 var placing_item = false
+var grid_owner: PackingGrid = null
+var grid_cell: PackingCell = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -64,12 +66,17 @@ func _place_item():
 		get_tree().root.add_child(picked_up_item)
 		picked_up_item.global_position = other_collider.global_position
 		placing_item = true
+
+		grid_owner = other_collider.get_parent()
+		grid_cell = other_collider
 	else:
 		picked_up_item.global_position = hand.global_position
 		get_tree().root.remove_child(picked_up_item)
 		hand.add_child(picked_up_item)
 
 		placing_item = false
+		grid_owner = null
+		grid_cell = null
 
 	
 
@@ -110,17 +117,21 @@ func _physics_process(delta):
 	
 	_place_item()
 
-	if Input.is_action_just_pressed("left_click"):
-		_pickup()
-
-	if Input.is_action_just_pressed("right_click"):
-		_drop()
-	
 	if placing_item:
 		if Input.is_action_just_pressed("rotate_cw"):
 			picked_up_item.rotate_y(-deg_to_rad(90))
 		if Input.is_action_just_pressed("rotate_ccw"):
 			picked_up_item.rotate_y(deg_to_rad(90))
+
+		if Input.is_action_just_pressed("left_click"):
+			grid_owner.check_if_room(picked_up_item, grid_cell)
+	else:
+		if Input.is_action_just_pressed("left_click"):
+			_pickup()
+	
+		if Input.is_action_just_pressed("right_click"):
+			_drop()
+
 
 	# Ray cast for checking pickupables
 	

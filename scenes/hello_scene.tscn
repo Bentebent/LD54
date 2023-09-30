@@ -72,11 +72,11 @@ script = ExtResource("2_o5xr7")
 [node name="Hand" type="Node3D" parent="CharacterBody3D/Camera/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.75)
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="PackingGrid" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37744, 0.00563854, 0)
 script = ExtResource("3_h0y1l")
 grid_dimensions = Vector3(5, 1, 5)
-cell_size = Vector3(0.25, 0.05, 0.25)
+cell_size = Vector3(0.25, 0.1, 0.25)
 
 [node name="Pickupable" parent="." instance=ExtResource("4_x4bnr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
