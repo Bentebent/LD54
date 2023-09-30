@@ -120,12 +120,16 @@ func _physics_process(delta):
 
 	if placing_item:
 		if Input.is_action_just_pressed("rotate_cw"):
-			picked_up_item.rotate_y(-deg_to_rad(90))
+			#picked_up_item.rotate_y(-deg_to_rad(90))
+			picked_up_item.rotate_me(true)
 		if Input.is_action_just_pressed("rotate_ccw"):
-			picked_up_item.rotate_y(deg_to_rad(90))
+			#picked_up_item.rotate_y(deg_to_rad(90))
+			picked_up_item.rotate_me(false)
 
 		if Input.is_action_just_pressed("left_click"):
-			grid_owner.check_if_room(picked_up_item, grid_cell)
+			if grid_owner.check_if_room(picked_up_item, grid_cell):
+				placing_item = false
+				picked_up_item = null
 	else:
 		if Input.is_action_just_pressed("left_click"):
 			_pickup()
