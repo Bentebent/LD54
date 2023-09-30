@@ -1,15 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cseph7hmhady6"]
+[gd_scene load_steps=5 format=3 uid="uid://cseph7hmhady6"]
 
-[ext_resource type="PhysicsMaterial" uid="uid://ctf1uyxdrkbmd" path="res://prefabs/pickupables/pickupable_phys_material.tres" id="1_nebri"]
+[ext_resource type="PhysicsMaterial" uid="uid://ctf1uyxdrkbmd" path="res://prefabs/pickupable_phys_material.tres" id="1_hix4e"]
+[ext_resource type="Script" path="res://src/item_spawn.gd" id="2_vblas"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2e0ir"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c08pw"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
 [node name="Pickupable" type="RigidBody3D"]
 collision_layer = 3
 mass = 0.1
-physics_material_override = ExtResource("1_nebri")
+physics_material_override = ExtResource("1_hix4e")
 continuous_cd = true
+script = ExtResource("2_vblas")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("BoxMesh_2e0ir")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_c08pw")
