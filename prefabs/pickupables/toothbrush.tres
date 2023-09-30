@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Pickupable" load_steps=7 format=3 uid="uid://dtmii04hooncx"]
+
+[ext_resource type="Script" path="res://src/pickupable.gd" id="1_3srpi"]
+[ext_resource type="ArrayMesh" uid="uid://bc7mk5q6jnnck" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube.res" id="1_owfpf"]
+[ext_resource type="ArrayMesh" uid="uid://dcnip5a6l3tfx" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_001.res" id="2_uu872"]
+[ext_resource type="ArrayMesh" uid="uid://b0c3f6kahh1ns" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_002.res" id="3_ydobc"]
+[ext_resource type="ArrayMesh" uid="uid://bfrvq4xokj4ej" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_003.res" id="4_x1kgw"]
+[ext_resource type="ArrayMesh" uid="uid://ctyxyyq3fm7xg" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_004.res" id="5_k66xu"]
+
+[resource]
+script = ExtResource("1_3srpi")
+grid_shape = "1
+1"
+mesh_templates = Array[Mesh]([ExtResource("1_owfpf"), ExtResource("2_uu872"), ExtResource("3_ydobc"), ExtResource("4_x1kgw"), ExtResource("5_k66xu")])
+mesh_tags = Array[int]([6, 4, 2, 7, 3])
+tags = Array[int]([100, 200])
