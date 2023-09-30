@@ -1,4 +1,4 @@
-extends Node3D
+extends RigidBody3D
 class_name ItemSpawn
 
 const glow_material = preload("res://materials/glow_mat.tres")
@@ -27,6 +27,8 @@ func _ready():
 	var instance = pickupable.get_random()
 	meshInstance.mesh = instance.mesh
 	collisionShape.shape = meshInstance.mesh.create_convex_shape()
+	center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
+	center_of_mass = instance.mesh.get_aabb().get_center()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
