@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export var speed = 0
 @export var sensitivity = 0.02
+@export var grab_dist = 2.0
 
 @onready var camera : CameraController = $"Camera/Camera3D"
 
@@ -45,6 +46,17 @@ func _physics_process(delta):
 
 	velocity = target_velocity
 	move_and_slide()
+	
+	# Ray cast for checking pickupables
+	var space_state = get_world_3d().direct_space_state
+	var from = camera.global_position
+	var to = -camera.global_transform.basis.z * grab_dist
+	var mask = 1 << 1
+	var pickupableQuery = PhysicsRayQueryParameters3D.create(from, to, mask)
+	var result = space_state.intersect_ray(pickupableQuery)
+	
+	if result:
+		print("Hit!")
 
 
 		
