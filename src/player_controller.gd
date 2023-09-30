@@ -40,11 +40,18 @@ func _pickup():
 			_drop()
 		
 		picked_up_item = hovered_collider
+		var grid = picked_up_item.get_parent()
 		picked_up_item.get_parent().remove_child(picked_up_item)
 		picked_up_item.position = hand.position
 		picked_up_item.rotation = Quaternion.IDENTITY.get_euler()
 		#picked_up_item.rotate_y(deg_to_rad(180))
 		hand.add_child(picked_up_item)
+
+		if picked_up_item.grid_cell:
+			picked_up_item.grid_cell.get_parent().remove_placeable(picked_up_item)
+			picked_up_item.grid_cell = null
+			picked_up_item.grid_orientation = 0
+		
 		picked_up_item.freeze = true
 
 
@@ -83,6 +90,7 @@ func _place_item():
 		get_tree().root.remove_child(picked_up_item)
 		hand.add_child(picked_up_item)
 
+		picked_up_item.grid_orientation = 0
 		placing_item = false
 		grid_owner = null
 		grid_cell = null
