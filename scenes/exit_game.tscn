@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://crdllywclnmct"]
+
+[ext_resource type="Script" path="res://src/scene_management/game_scene.gd" id="1_fl7tj"]
+[ext_resource type="Script" path="res://src/scene_management/exit_game.gd" id="1_fq4pv"]
+
+[node name="exit_game" type="Node3D"]
+script = ExtResource("1_fl7tj")
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("1_fq4pv")

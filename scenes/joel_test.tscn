@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsg6dhwfl2tml"]
+
+[ext_resource type="Script" path="res://src/scene_management/game_scene.gd" id="1_16gm8"]
+[ext_resource type="PackedScene" uid="uid://cseph7hmhady6" path="res://prefabs/pickupable.tscn" id="1_62k37"]
+[ext_resource type="Resource" uid="uid://dtmii04hooncx" path="res://prefabs/pickupables/toothbrush.tres" id="2_vpbv7"]
+[ext_resource type="Resource" uid="uid://5mrhp5srcv7b" path="res://prefabs/pickupables/banana.tres" id="3_j065t"]
+[ext_resource type="Resource" uid="uid://bi518asyk32ih" path="res://prefabs/pickupables/pants.tres" id="4_wqxoy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dst0s"]
+
+[node name="joel_test" type="Node3D"]
+script = ExtResource("1_16gm8")
+
+[node name="Pickupable" parent="." instance=ExtResource("1_62k37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.488899, 0.920461, 0)
+pickupable = ExtResource("2_vpbv7")
+
+[node name="Pickupable2" parent="." instance=ExtResource("1_62k37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.920461, 0)
+pickupable = ExtResource("3_j065t")
+
+[node name="Pickupable3" parent="." instance=ExtResource("1_62k37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.427705, 0.920461, 0)
+pickupable = ExtResource("4_wqxoy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(5.99276, 0, 0, 0, 1, 0, 0, 0, 4.43991, 0, -0.373961, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_dst0s")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.945933, 0.324363, 0, -0.324363, 0.945933, 0, 1.82316, 3.69318)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.398317, 0.917248, 0, -0.917248, 0.398317, 0, 2.39835, 0)

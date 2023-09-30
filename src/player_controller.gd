@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 @onready var camera : CameraController = $"Camera/Camera3D"
 @onready var hand : Node3D = $"Camera/Camera3D/Hand"
+@onready var game_scene : GameScene = $".."
 
 var target_velocity = Vector3.ZERO
 var picked_up_item = null
@@ -92,7 +93,7 @@ func _input(event):
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("exit"):
-		get_tree().quit()
+		game_scene.request_main_menu()
 
 
 	var direction = Vector3.ZERO

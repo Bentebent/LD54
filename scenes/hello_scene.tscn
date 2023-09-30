@@ -1,5 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://d0ja7w50g7o6y"]
 
+[ext_resource type="Script" path="res://src/scene_management/game_scene.gd" id="1_jqopj"]
 [ext_resource type="Script" path="res://src/player_controller.gd" id="1_pdl8t"]
 [ext_resource type="Script" path="res://src/camera_controller.gd" id="2_o5xr7"]
 [ext_resource type="Script" path="res://src/packing_grid.gd" id="3_h0y1l"]
@@ -20,6 +21,7 @@ radius = 0.1
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uat8n"]
 
 [node name="hello_scene" type="Node3D"]
+script = ExtResource("1_jqopj")
 
 [node name="Box" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0959836, 0)

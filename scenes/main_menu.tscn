@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7qjqaweup0ul"]
+
+[ext_resource type="Script" path="res://src/scene_management/game_scene.gd" id="1_a3xjt"]
+[ext_resource type="Script" path="res://src/scene_management/main_menu_logic.gd" id="2_f6gki"]
+
+[node name="main_menu" type="Node3D"]
+script = ExtResource("1_a3xjt")
+
+[node name="main_menu_logic" type="Node3D" parent="."]
+script = ExtResource("2_f6gki")
+
+[node name="ui_container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui_container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.38
+anchor_right = 0.5
+anchor_bottom = 0.38
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ui_container/VBoxContainer"]
+layout_mode = 2
+text = "Welcom to game
+Play now? Yes?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui_container/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="yes_button" type="Button" parent="ui_container/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Yes!"
+
+[node name="no_button" type="Button" parent="ui_container/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "NO! :("
+
+[connection signal="pressed" from="ui_container/VBoxContainer/HBoxContainer/yes_button" to="main_menu_logic" method="_on_yes_button_pressed"]
+[connection signal="pressed" from="ui_container/VBoxContainer/HBoxContainer/no_button" to="main_menu_logic" method="_on_no_button_pressed"]
