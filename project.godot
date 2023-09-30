@@ -69,6 +69,7 @@ right_click={
 [layer_names]
 
 3d_physics/layer_2="Pickupable"
+3d_physics/layer_3="PackingCell"
 
 [rendering]
 

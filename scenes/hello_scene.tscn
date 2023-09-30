@@ -1,14 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0ja7w50g7o6y"]
+[gd_scene load_steps=11 format=3 uid="uid://d0ja7w50g7o6y"]
 
 [ext_resource type="Script" path="res://src/player_controller.gd" id="1_pdl8t"]
 [ext_resource type="Script" path="res://src/camera_controller.gd" id="2_o5xr7"]
 [ext_resource type="PackedScene" uid="uid://dr81gsikvw5p5" path="res://prefabs/pickupables/toothbrush.tscn" id="3_16ylk"]
+[ext_resource type="Script" path="res://src/packing_grid.gd" id="3_h0y1l"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1c3dj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e63ic"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wgjjv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2sro1"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hfsxo"]
 radius = 0.1
@@ -28,10 +31,19 @@ mesh = SubResource("BoxMesh_1c3dj")
 shape = SubResource("BoxShape3D_e63ic")
 
 [node name="Ground" type="Node3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.00079298, -4.76837e-07, 0.00456667)
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -0.00079298, -4.76837e-07, 0.00456667)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+visible = false
 mesh = SubResource("PlaneMesh_wgjjv")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Ground"]
+lock_rotation = true
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/RigidBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.02461, 0)
+shape = SubResource("BoxShape3D_2sro1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.270094, 0.439688, -0.856577, 0.132224, 0.89815, 0.419336, 0.953712, 7.80642e-09, -0.300723, -4.50286, 2.30225, 0)
@@ -51,12 +63,13 @@ shape = SubResource("CylinderShape3D_hfsxo")
 mesh = SubResource("CapsuleMesh_uat8n")
 
 [node name="Camera" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.578332, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera"]
 script = ExtResource("2_o5xr7")
 
 [node name="Hand" type="Node3D" parent="CharacterBody3D/Camera/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.264671, 0.100121, -0.819587)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.75)
 
 [node name="Toothbrush" parent="." instance=ExtResource("3_16ylk")]
 transform = Transform3D(0.981687, 0.153618, -0.112658, -0.190501, 0.791626, -0.58055, 0, 0.59138, 0.806393, -0.0659469, 0.85526, 0.0115318)
@@ -83,7 +96,13 @@ physics_material_override = null
 continuous_cd = false
 
 [node name="Toothbrush5" parent="." instance=ExtResource("3_16ylk")]
-transform = Transform3D(0.981687, 0.153618, -0.112658, -0.190501, 0.791626, -0.58055, 0, 0.59138, 0.806393, -0.0659469, 1.6891, 0.0115318)
+transform = Transform3D(-0.218124, 0.542654, 0.81114, -0.190052, 0.791622, -0.580703, -0.957237, -0.280824, -0.0695392, -0.0659469, 1.6891, 0.0115318)
 mass = 1.0
 physics_material_override = null
 continuous_cd = false
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37744, 0.00563854, 0)
+script = ExtResource("3_h0y1l")
+grid_dimensions = Vector3(5, 1, 5)
+cell_size = Vector3(0.25, 0.05, 0.25)
