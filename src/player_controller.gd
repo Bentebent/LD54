@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var speed = 0
 @export var accel = 50
 @export var sensitivity = 0.001
-@export var grab_dist = 2.0
+@export var grab_dist = 3.0
 
 @onready var camera : CameraController = $"Camera/Camera3D"
 @onready var hand : Node3D = $"Camera/Camera3D/Hand"
