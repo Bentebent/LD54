@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b50lho7u8gbiq"]
+
+[ext_resource type="Script" path="res://src/scene_management/scene_bootstrap.gd" id="1_auibg"]
+[ext_resource type="PackedScene" uid="uid://c7qjqaweup0ul" path="res://scenes/main_menu.tscn" id="2_qwy5d"]
+
+[node name="bootstrap" type="Node3D"]
+script = ExtResource("1_auibg")
+initial_scene = ExtResource("2_qwy5d")
