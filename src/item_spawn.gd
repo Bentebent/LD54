@@ -1,5 +1,7 @@
-extends Node3D
+extends RigidBody3D
 class_name ItemSpawn
+
+const glow_material = preload("res://materials/glow_mat.tres")
 
 @export var pickupable: Pickupable
 
@@ -18,14 +20,25 @@ func rotate_me(cw):
 		grid_orientation -= 1
 
 	grid_orientation = wrapi(grid_orientation, 0, 4)
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var instance = pickupable.get_random()
 	meshInstance.mesh = instance.mesh
 	collisionShape.shape = meshInstance.mesh.create_convex_shape()
+	center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
+	center_of_mass = instance.mesh.get_aabb().get_center()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func set_glowing(is_glowing):
+	if (is_glowing):
+		meshInstance.material_override = glow_material
+	else:
+		meshInstance.material_override = null
+	

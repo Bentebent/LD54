@@ -2,11 +2,9 @@
 
 [ext_resource type="PhysicsMaterial" uid="uid://ctf1uyxdrkbmd" path="res://prefabs/pickupable_phys_material.tres" id="1_hix4e"]
 [ext_resource type="Script" path="res://src/item_spawn.gd" id="2_vblas"]
+[ext_resource type="ArrayMesh" uid="uid://dds73hjonwc4" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_005.res" id="3_ynvra"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_2e0ir"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c08pw"]
-points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2cue8"]
 
 [node name="Pickupable" type="RigidBody3D"]
 collision_layer = 3
@@ -16,9 +14,7 @@ continuous_cd = true
 script = ExtResource("2_vblas")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("BoxMesh_2e0ir")
+mesh = ExtResource("3_ynvra")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_c08pw")
+shape = SubResource("ConvexPolygonShape3D_2cue8")
