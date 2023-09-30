@@ -56,6 +56,9 @@ mesh = SubResource("CapsuleMesh_uat8n")
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera"]
 script = ExtResource("2_o5xr7")
 
+[node name="Hand" type="Node3D" parent="CharacterBody3D/Camera/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.264671, 0.100121, -0.819587)
+
 [node name="Pickupable" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501603, 0)
 collision_layer = 3
