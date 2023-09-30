@@ -43,7 +43,6 @@ shape = SubResource("CylinderShape3D_hfsxo")
 mesh = SubResource("CapsuleMesh_uat8n")
 
 [node name="Camera" type="Node3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera"]
 script = ExtResource("2_o5xr7")

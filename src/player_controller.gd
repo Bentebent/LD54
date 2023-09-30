@@ -22,6 +22,10 @@ func _input(event):
 
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("exit"):
+		get_tree().quit()
+
+
 	var direction = Vector3.ZERO
 
 	if Input.is_action_pressed("move_right"):
