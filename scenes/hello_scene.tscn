@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0ja7w50g7o6y"]
+[gd_scene load_steps=12 format=3 uid="uid://d0ja7w50g7o6y"]
 
 [ext_resource type="Script" path="res://src/player_controller.gd" id="1_pdl8t"]
 [ext_resource type="Script" path="res://src/camera_controller.gd" id="2_o5xr7"]
-[ext_resource type="PackedScene" uid="uid://dr81gsikvw5p5" path="res://prefabs/pickupables/toothbrush.tscn" id="3_16ylk"]
 [ext_resource type="Script" path="res://src/packing_grid.gd" id="3_h0y1l"]
+[ext_resource type="PackedScene" uid="uid://cseph7hmhady6" path="res://prefabs/pickupable.tscn" id="4_x4bnr"]
+[ext_resource type="Resource" uid="uid://5mrhp5srcv7b" path="res://prefabs/pickupables/banana.tres" id="5_opq23"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1c3dj"]
 
@@ -76,3 +77,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37744, 0.00563854, 0)
 script = ExtResource("3_h0y1l")
 grid_dimensions = Vector3(5, 1, 5)
 cell_size = Vector3(0.25, 0.05, 0.25)
+
+[node name="Pickupable" parent="." instance=ExtResource("4_x4bnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
+pickupable = ExtResource("5_opq23")
+
+[node name="Pickupable2" parent="." instance=ExtResource("4_x4bnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
+pickupable = ExtResource("5_opq23")
+
+[node name="Pickupable3" parent="." instance=ExtResource("4_x4bnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
+pickupable = ExtResource("5_opq23")
+
+[node name="Pickupable4" parent="." instance=ExtResource("4_x4bnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
+pickupable = ExtResource("5_opq23")
+
+[node name="Pickupable5" parent="." instance=ExtResource("4_x4bnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
+pickupable = ExtResource("5_opq23")
+
+[node name="Pickupable6" parent="." instance=ExtResource("4_x4bnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
+pickupable = ExtResource("5_opq23")
+
+[node name="Pickupable7" parent="." instance=ExtResource("4_x4bnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
+pickupable = ExtResource("5_opq23")

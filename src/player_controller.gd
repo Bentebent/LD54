@@ -9,6 +9,7 @@ extends CharacterBody3D
 
 var target_velocity = Vector3.ZERO
 var picked_up_item = null
+var placing_item = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -59,17 +60,18 @@ func _place_item():
 	var result = space_state.intersect_ray(pickupableQuery)
 	if result:
 		var other_collider = result.get("collider")
-		print(result.get("collider"))
-		#hand.remove_child(picked_up_item)
-		#picked_up_item.global_position = result.get("collider").global_position
 		hand.remove_child(picked_up_item)
 		get_tree().root.add_child(picked_up_item)
 		picked_up_item.global_position = other_collider.global_position
-		print(picked_up_item.position)
-		#other_collider.add_child(picked_up_item)
-		# result.get("collider").add_child(picked_up_item)
+		placing_item = true
 	else:
 		picked_up_item.global_position = hand.global_position
+		get_tree().root.remove_child(picked_up_item)
+		hand.add_child(picked_up_item)
+
+		placing_item = false
+
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -114,6 +116,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("right_click"):
 		_drop()
 	
+	if placing_item:
+		if Input.is_action_just_pressed("rotate_cw"):
+			picked_up_item.rotate_y(-deg_to_rad(90))
+		if Input.is_action_just_pressed("rotate_ccw"):
+			picked_up_item.rotate_y(deg_to_rad(90))
+
 	# Ray cast for checking pickupables
 	
 
