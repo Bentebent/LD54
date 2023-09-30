@@ -1,6 +1,8 @@
 extends Node3D
 class_name ItemSpawn
 
+const glow_material = preload("res://materials/glow_mat.tres")
+
 @export var pickupable: Pickupable
 
 @onready var meshInstance: MeshInstance3D = $Mesh
@@ -18,6 +20,7 @@ func rotate_me(cw):
 		grid_orientation -= 1
 
 	grid_orientation = wrapi(grid_orientation, 0, 4)
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,3 +32,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func set_glowing(is_glowing):
+	if (is_glowing):
+		meshInstance.material_override = glow_material
+	else:
+		meshInstance.material_override = null
+	
