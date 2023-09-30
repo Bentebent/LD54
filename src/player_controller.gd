@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var speed = 0
+@export var accel = 50
 @export var sensitivity = 0.001
 @export var grab_dist = 2.0
 
@@ -113,7 +114,7 @@ func _physics_process(delta):
 	target_velocity.x = direction.x  * speed
 	target_velocity.z = direction.z *  speed
 
-	velocity = target_velocity
+	velocity = velocity.move_toward(target_velocity, delta * accel)
 	move_and_slide()
 	
 	_place_item()

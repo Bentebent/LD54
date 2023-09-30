@@ -9,7 +9,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("exit"):
+		game_scene.request_exit_game()
 
 
 func _on_yes_button_pressed():

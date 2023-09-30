@@ -23,7 +23,7 @@ func rotate_me(cw):
 func _ready():
 	var instance = pickupable.get_random()
 	meshInstance.mesh = instance.mesh
-	
+	collisionShape.shape = meshInstance.mesh.create_convex_shape()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
