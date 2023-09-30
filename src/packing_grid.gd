@@ -22,6 +22,26 @@ func _ready():
 
 
 func check_if_room(placeable, origin_tile):
-	print(placeable)
-	print(origin_tile)
+	var x = origin_tile.x
+	var z = origin_tile.z
+	var per_row_split = placeable.pickupable.grid_shape.split("\n")
+
+	var failed = false
+	for row in per_row_split:
+		for column in row:
+			if column == "1" and grid[x][z] == 1:
+				failed = true
+				break
+			x += 1
+		if failed:
+			break
+		z += 1
+		x = origin_tile.x
+
+	print(failed)
+	#print(placeable.pickupable.grid_shape)
+
+	#print()
+	#print(origin_tile.x)
+	#print(origin_tile.z)
 

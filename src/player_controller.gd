@@ -34,7 +34,7 @@ func _pickup():
 		picked_up_item.get_parent().remove_child(picked_up_item)
 		picked_up_item.position = hand.position
 		picked_up_item.rotation = Quaternion.IDENTITY.get_euler()
-		picked_up_item.rotate_y(deg_to_rad(90))
+		#picked_up_item.rotate_y(deg_to_rad(180))
 		hand.add_child(picked_up_item)
 		picked_up_item.freeze = true
 
