@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var speed = 0
 @export var accel = 50
 @export var sensitivity = 0.001
-@export var grab_dist = 3.0
+@export var grab_dist = 2.0
 
 @onready var camera : CameraController = $"Camera/Camera3D"
 @onready var hand : Node3D = $"Camera/Camera3D/Hand"
@@ -11,7 +11,6 @@ extends CharacterBody3D
 
 var target_velocity = Vector3.ZERO
 var picked_up_item = null
-var hovered_item = null
 var placing_item = false
 var grid_owner: PackingGrid = null
 var grid_cell: PackingCell = null
@@ -20,26 +19,20 @@ var grid_cell: PackingCell = null
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _get_hovered_collider():
+
+func _pickup():
 	var space_state = get_world_3d().direct_space_state
 	var from = camera.global_position
 	var to = from - camera.global_transform.basis.z * grab_dist
 	var mask = 1 << 1
 	var pickupableQuery = PhysicsRayQueryParameters3D.create(from, to, mask)
 	var result = space_state.intersect_ray(pickupableQuery)
-		
+	
 	if result:
-		return result.get("collider")
-	else:
-		return null
-
-func _pickup():
-	var hovered_collider = _get_hovered_collider()
-	if (hovered_collider):
 		if picked_up_item != null:
 			_drop()
-		
-		picked_up_item = hovered_collider
+
+		picked_up_item = result.get("collider")
 		picked_up_item.get_parent().remove_child(picked_up_item)
 		picked_up_item.position = hand.position
 		picked_up_item.rotation = Quaternion.IDENTITY.get_euler()
@@ -144,16 +137,10 @@ func _physics_process(delta):
 	
 		if Input.is_action_just_pressed("right_click"):
 			_drop()
+
+
+	# Ray cast for checking pickupables
 	
-	var new_hovered_item
-	if (picked_up_item):
-		new_hovered_item = null
-	else:
-		new_hovered_item = _get_hovered_collider()
+
+
 		
-	if (new_hovered_item != hovered_item):
-		if (hovered_item):
-			hovered_item.set_glowing(false)
-		if (new_hovered_item):
-			new_hovered_item.set_glowing(true)
-		hovered_item = new_hovered_item

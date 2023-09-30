@@ -46,13 +46,28 @@ func check_if_room(placeable, origin_tile):
 		i += 1
 
 	var rotated_shape = rotate_array(collision_shape, placeable.grid_orientation)
+	var origin_x = x
+	var origin_z = z
+	
+	if placeable.grid_orientation == 1:
+		origin_x -= rotated_shape[0].size() - 1
 
-	if x + rotated_shape.size() > grid.size():
-		return false
-	if z + rotated_shape[0].size() > grid[0].size():
+	if placeable.grid_orientation == 2:
+		origin_x -= rotated_shape[0].size() - 1
+		origin_z -= rotated_shape.size() - 1
+
+	if placeable.grid_orientation == 3:
+		origin_z -= rotated_shape.size() - 1
+
+	if origin_x < 0 || origin_x + rotated_shape[0].size() - 1 >= grid.size():
 		return false
 
+	if origin_z < 0 || origin_z + rotated_shape.size() - 1 >= grid[0].size():
+		return false
+	
 	var failed = false
+	x = origin_x
+	z = origin_z
 	for row in rotated_shape:
 		for column in row:
 			if column == "1" and grid[x][z] == 1:
@@ -62,10 +77,10 @@ func check_if_room(placeable, origin_tile):
 		if failed:
 			break
 		z += 1
-		x = origin_tile.x
+		x = origin_x
 	
-	x = origin_tile.x
-	z = origin_tile.z
+	x = origin_x
+	z = origin_z
 	if !failed:
 		for row in rotated_shape:
 			for column in row:
@@ -73,7 +88,7 @@ func check_if_room(placeable, origin_tile):
 					grid[x][z] = 1
 				x += 1
 			z += 1
-			x = origin_tile.x
+			x = origin_x
 
 		placeable.grid_cell = origin_tile
 
