@@ -44,8 +44,13 @@ func check_if_room(placeable, origin_tile):
 		for column in row:
 			collision_shape[i].append(column)
 		i += 1
-	
+
 	var rotated_shape = rotate_array(collision_shape, placeable.grid_orientation)
+
+	if x + rotated_shape.size() > grid.size():
+		return false
+	if z + rotated_shape[0].size() > grid[0].size():
+		return false
 
 	var failed = false
 	for row in rotated_shape:
