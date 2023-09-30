@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://src/player_controller.gd" id="1_pdl8t"]
 [ext_resource type="Script" path="res://src/camera_controller.gd" id="2_o5xr7"]
+[ext_resource type="PackedScene" uid="uid://dr81gsikvw5p5" path="res://prefabs/pickupables/toothbrush.tscn" id="3_16ylk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1c3dj"]
 
@@ -13,8 +14,6 @@
 radius = 0.1
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uat8n"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_e7hjl"]
 
 [node name="hello_scene" type="Node3D"]
 
@@ -59,13 +58,32 @@ script = ExtResource("2_o5xr7")
 [node name="Hand" type="Node3D" parent="CharacterBody3D/Camera/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.264671, 0.100121, -0.819587)
 
-[node name="Pickupable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501603, 0)
-collision_layer = 3
+[node name="Toothbrush" parent="." instance=ExtResource("3_16ylk")]
+transform = Transform3D(0.981687, 0.153618, -0.112658, -0.190501, 0.791626, -0.58055, 0, 0.59138, 0.806393, -0.0659469, 0.85526, 0.0115318)
+mass = 1.0
+physics_material_override = null
+continuous_cd = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pickupable"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-shape = SubResource("BoxShape3D_e7hjl")
+[node name="Toothbrush2" parent="." instance=ExtResource("3_16ylk")]
+transform = Transform3D(0.981687, 0.153618, -0.112658, -0.190501, 0.791626, -0.58055, 0, 0.59138, 0.806393, -0.0659469, 1.02527, 0.0115318)
+mass = 1.0
+physics_material_override = null
+continuous_cd = false
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Pickupable"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+[node name="Toothbrush3" parent="." instance=ExtResource("3_16ylk")]
+transform = Transform3D(0.981687, 0.153618, -0.112658, -0.190501, 0.791626, -0.58055, 0, 0.59138, 0.806393, -0.0659469, 1.26286, 0.0115318)
+mass = 1.0
+physics_material_override = null
+continuous_cd = false
+
+[node name="Toothbrush4" parent="." instance=ExtResource("3_16ylk")]
+transform = Transform3D(0.981687, 0.153618, -0.112658, -0.190501, 0.791626, -0.58055, 0, 0.59138, 0.806393, -0.0659469, 1.50993, 0.0115318)
+mass = 1.0
+physics_material_override = null
+continuous_cd = false
+
+[node name="Toothbrush5" parent="." instance=ExtResource("3_16ylk")]
+transform = Transform3D(0.981687, 0.153618, -0.112658, -0.190501, 0.791626, -0.58055, 0, 0.59138, 0.806393, -0.0659469, 1.6891, 0.0115318)
+mass = 1.0
+physics_material_override = null
+continuous_cd = false

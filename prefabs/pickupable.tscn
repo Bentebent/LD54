@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cseph7hmhady6"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://ctf1uyxdrkbmd" path="res://prefabs/pickupables/pickupable_phys_material.tres" id="1_nebri"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2e0ir"]
+
+[node name="Pickupable" type="RigidBody3D"]
+collision_layer = 3
+mass = 0.1
+physics_material_override = ExtResource("1_nebri")
+continuous_cd = true
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_2e0ir")
