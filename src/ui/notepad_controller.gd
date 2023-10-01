@@ -1,4 +1,5 @@
 extends Control
+class_name NotepadController
 
 const visible_position = Vector2(0, 0)
 const hidden_position = Vector2(512, 0)
@@ -10,13 +11,19 @@ const animation_speed = 1.5
 
 var notepad_visible = false
 var notepad_visible_t = 0
+	
+func _init():
+	pass
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_todo_list(["Hello", "This", "Is", "List?"])
-	
 	set_checked(2)
-
+	#PointsCollector.list_created.emit(["poo"])
+	PointsCollector.list_created.connect(set_todo_list)
+	PointsCollector.item_checked.connect(set_checked)
+	PointsCollector.scene_loaded.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,7 +51,7 @@ const _todo_list_element_scene = preload("res://prefabs/ui/todo_list_element.tsc
 var _todo_list: Array[RichTextLabel]
 var _todo_list_strings: Array[String]
 
-func set_todo_list(items: Array[String]):
+func set_todo_list(items):
 	# remove all previous elements in vertical list
 	for node in element_list_vertical_container.get_children():
 		node.queue_free()

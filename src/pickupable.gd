@@ -34,7 +34,5 @@ func get_random():
 	instance.tags = tags.duplicate()
 	instance.tags.append(mesh_tags[mesh_template_index])
 	
-	print(instance.tags)
-
 	return instance
 	

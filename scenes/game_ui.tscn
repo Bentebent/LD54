@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq5civhr64wbd"]
+[gd_scene load_steps=3 format=3 uid="uid://c7nurnkte5ygw"]
 
 [ext_resource type="Texture2D" uid="uid://c0dvwueemu45u" path="res://assets/notepad.png" id="1_tc5o8"]
 [ext_resource type="Script" path="res://src/ui/notepad_controller.gd" id="1_y3a3r"]

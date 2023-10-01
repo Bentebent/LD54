@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://src/packing_list.gd" id="1_qrpth"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_qrpth")
-tag_collection_len = [2, 1]
+tag_collection_len = Array[int]([2, 1])
 packing_list = Array[int]([2, 200, 2])
