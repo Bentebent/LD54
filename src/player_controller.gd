@@ -62,6 +62,8 @@ func _pickup():
 			picked_up_item.grid_cell.get_parent().remove_placeable(picked_up_item)
 			picked_up_item.grid_cell = null
 			picked_up_item.grid_orientation = 0
+
+			PointsCollector.item_removed.emit(picked_up_item)
 		
 		set_collisions_enabled(picked_up_item, false)
 		picked_up_item.freeze = true
@@ -161,6 +163,7 @@ func _physics_process(delta):
 
 		if Input.is_action_just_pressed("left_click"):
 			if grid_owner.check_if_room(picked_up_item, grid_cell):
+				PointsCollector.item_removed.emit(picked_up_item)
 				set_collisions_enabled(picked_up_item, true)
 				placing_item = false
 				picked_up_item = null

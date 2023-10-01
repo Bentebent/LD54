@@ -15,6 +15,10 @@ run/main_scene="res://scenes/bootstrap.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PointsCollector="*res://src/points_collector.gd"
+
 [display]
 
 window/vsync/vsync_mode=0
