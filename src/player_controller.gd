@@ -107,7 +107,7 @@ func _place_item():
 			get_tree().root.add_child(picked_up_item)
 		picked_up_item.global_position = other_collider.global_position
 		placing_item = true
-		print(other_collider)
+
 		grid_owner = other_collider.get_parent()
 		grid_cell = other_collider
 	else:
@@ -117,7 +117,7 @@ func _place_item():
 			get_tree().root.remove_child(picked_up_item)
 			hand.add_child(picked_up_item)
 
-		picked_up_item.grid_orientation = 0
+		#picked_up_item.grid_orientation = 0
 		placing_item = false
 		grid_owner = null
 		grid_cell = null

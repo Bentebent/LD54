@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://src/scene_management/game_scene.gd" id="1_jqopj"]
 [ext_resource type="Script" path="res://src/player_controller.gd" id="1_pdl8t"]
-[ext_resource type="PackedScene" uid="uid://djkrntbn2x4lb" path="res://scenes/bedroom.tscn" id="2_0sw2p"]
-[ext_resource type="PackedScene" uid="uid://dq5civhr64wbd" path="res://scenes/game_ui.tscn" id="2_dab10"]
+[ext_resource type="PackedScene" path="res://scenes/bedroom.tscn" id="2_0sw2p"]
+[ext_resource type="PackedScene" uid="uid://c7nurnkte5ygw" path="res://scenes/game_ui.tscn" id="2_dab10"]
 [ext_resource type="Script" path="res://src/camera_controller.gd" id="2_o5xr7"]
 [ext_resource type="Script" path="res://src/packing_grid.gd" id="3_h0y1l"]
 [ext_resource type="PackedScene" uid="uid://og2v7o1pblub" path="res://prefabs/pickupables/banana.tscn" id="10_iysjq"]
