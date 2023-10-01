@@ -16,6 +16,17 @@ var placing_item = false
 var grid_owner: PackingGrid = null
 var grid_cell: PackingCell = null
 
+func set_collisions_enabled(node, enabled):
+	if enabled:
+		if node.has_meta("col_mask"):
+			node.collision_mask = node.get_meta("col_mask")
+			node.collision_layer = node.get_meta("col_layer")
+	else:
+			node.set_meta("col_mask", node.collision_mask)
+			node.set_meta("col_layer", node.collision_layer)
+			node.collision_mask = 0
+			node.collision_layer = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -52,7 +63,9 @@ func _pickup():
 			picked_up_item.grid_cell = null
 			picked_up_item.grid_orientation = 0
 		
+		set_collisions_enabled(picked_up_item, false)
 		picked_up_item.freeze = true
+		picked_up_item.sleeping = true
 
 
 func _drop():
@@ -64,6 +77,10 @@ func _drop():
 	get_tree().root.get_child(0).add_child(picked_up_item)
 	picked_up_item.position = hand.global_position
 	picked_up_item.freeze = false
+	picked_up_item.sleeping = false
+	set_collisions_enabled(picked_up_item, true)
+
+	picked_up_item.apply_impulse(-camera.global_transform.basis.z *2)
 	picked_up_item = null
 
 func _place_item():
@@ -144,6 +161,7 @@ func _physics_process(delta):
 
 		if Input.is_action_just_pressed("left_click"):
 			if grid_owner.check_if_room(picked_up_item, grid_cell):
+				set_collisions_enabled(picked_up_item, true)
 				placing_item = false
 				picked_up_item = null
 	else:
