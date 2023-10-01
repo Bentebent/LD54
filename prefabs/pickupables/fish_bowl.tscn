@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://x31juhjtltxb" path="res://prefabs/pickupables/fish_bowl.tres" id="2_y705f"]
 [ext_resource type="ArrayMesh" uid="uid://din2hkq1gh2x4" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Sphere_001.res" id="3_1bae6"]
 
-[node name="Pickupable" instance=ExtResource("1_mwenf")]
+[node name="fish_bowl" instance=ExtResource("1_mwenf")]
 pickupable = ExtResource("2_y705f")
 
 [node name="Mesh" parent="." index="0"]

@@ -89,6 +89,7 @@ open_notepad={
 
 3d_physics/layer_2="Pickupable"
 3d_physics/layer_3="PackingCell"
+3d_physics/layer_4="LevelGeometry"
 
 [rendering]
 

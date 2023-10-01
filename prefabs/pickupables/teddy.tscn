@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://ds7c01cnhf4rb" path="res://prefabs/pickupables/teddy.tres" id="2_imav6"]
 [ext_resource type="ArrayMesh" uid="uid://fd6rf80lfdgk" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_022.res" id="3_k6etx"]
 
-[node name="Pickupable" instance=ExtResource("1_5tcpe")]
+[node name="teddy" instance=ExtResource("1_5tcpe")]
 pickupable = ExtResource("2_imav6")
 
 [node name="Mesh" parent="." index="0"]

@@ -1,14 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://d0ja7w50g7o6y"]
+[gd_scene load_steps=20 format=3 uid="uid://d0ja7w50g7o6y"]
 
 [ext_resource type="Script" path="res://src/scene_management/game_scene.gd" id="1_jqopj"]
 [ext_resource type="Script" path="res://src/player_controller.gd" id="1_pdl8t"]
-[ext_resource type="PackedScene" uid="uid://c7nurnkte5ygw" path="res://scenes/game_ui.tscn" id="2_dab10"]
+[ext_resource type="PackedScene" uid="uid://djkrntbn2x4lb" path="res://scenes/bedroom.tscn" id="2_0sw2p"]
+[ext_resource type="PackedScene" uid="uid://dq5civhr64wbd" path="res://scenes/game_ui.tscn" id="2_dab10"]
 [ext_resource type="Script" path="res://src/camera_controller.gd" id="2_o5xr7"]
 [ext_resource type="Script" path="res://src/packing_grid.gd" id="3_h0y1l"]
-[ext_resource type="PackedScene" uid="uid://cseph7hmhady6" path="res://prefabs/pickupable.tscn" id="4_x4bnr"]
-[ext_resource type="Resource" uid="uid://5mrhp5srcv7b" path="res://prefabs/pickupables/banana.tres" id="5_opq23"]
-[ext_resource type="Resource" uid="uid://bi518asyk32ih" path="res://prefabs/pickupables/pants.tres" id="7_x3b6d"]
-[ext_resource type="Resource" uid="uid://dtmii04hooncx" path="res://prefabs/pickupables/toothbrush.tres" id="8_bsy43"]
 [ext_resource type="PackedScene" uid="uid://og2v7o1pblub" path="res://prefabs/pickupables/banana.tscn" id="10_iysjq"]
 [ext_resource type="PackedScene" uid="uid://dfghsyapxeusx" path="res://prefabs/pickupables/dumbbell.tscn" id="11_33gr7"]
 [ext_resource type="PackedScene" uid="uid://cm4folowdwit" path="res://prefabs/pickupables/fish_bowl.tscn" id="12_22khc"]
@@ -20,62 +17,36 @@
 [ext_resource type="PackedScene" uid="uid://c5jfoj7ii10k8" path="res://prefabs/pickupables/ukulele.tscn" id="18_rg374"]
 [ext_resource type="PackedScene" uid="uid://b8cpldj1bc4vn" path="res://prefabs/pickupables/umbrella.tscn" id="19_m42sd"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_1c3dj"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_e63ic"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_wgjjv"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2sro1"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_hfsxo"]
-radius = 0.1
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8we6"]
+size = Vector3(0.25, 2, 0.25)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uat8n"]
+
+[sub_resource type="Environment" id="Environment_8n4xk"]
+ambient_light_source = 2
+ambient_light_color = Color(0.780392, 0.713726, 0.639216, 1)
 
 [node name="hello_scene" type="Node3D"]
 script = ExtResource("1_jqopj")
 
 [node name="game_ui" parent="." instance=ExtResource("2_dab10")]
 
-[node name="Box" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0959836, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Box"]
-transform = Transform3D(1, 6.48451e-05, 0.000551897, -6.44439e-05, 1, -0.000717576, -0.000551944, 0.00071754, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_1c3dj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box"]
-shape = SubResource("BoxShape3D_e63ic")
-
-[node name="Ground" type="Node3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -0.00079298, -4.76837e-07, 0.00456667)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-visible = false
-mesh = SubResource("PlaneMesh_wgjjv")
-
-[node name="RigidBody3D" type="RigidBody3D" parent="Ground"]
-lock_rotation = true
-freeze = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/RigidBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.02461, 0)
-shape = SubResource("BoxShape3D_2sro1")
+[node name="bedroom" parent="." instance=ExtResource("2_0sw2p")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.270094, 0.439688, -0.856577, 0.132224, 0.89815, 0.419336, 0.953712, 7.80642e-09, -0.300723, -4.50286, 2.30225, 0)
 shadow_enabled = true
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01424, 3.89327)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44951, 0.775103, 1.69955)
 collision_layer = 8
-collision_mask = 0
+collision_mask = 8
+safe_margin = 0.1
 script = ExtResource("1_pdl8t")
-speed = 10
+speed = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("CylinderShape3D_hfsxo")
+shape = SubResource("BoxShape3D_u8we6")
 
 [node name="Visual" type="Node3D" parent="CharacterBody3D"]
 
@@ -86,6 +57,7 @@ mesh = SubResource("CapsuleMesh_uat8n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.578332, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Camera"]
+environment = SubResource("Environment_8n4xk")
 script = ExtResource("2_o5xr7")
 
 [node name="Hand" type="Node3D" parent="CharacterBody3D/Camera/Camera3D"]
@@ -96,128 +68,85 @@ current = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CharacterBody3D"]
 volume_db = -37.6
-bus = &"SFX"
 
 [node name="PackingGrid" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37744, 0.00563854, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53779, 0.00563854, -0.919058)
 script = ExtResource("3_h0y1l")
 grid_dimensions = Vector3(5, 1, 5)
 
 [node name="PackingGrid2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37744, 0.00563854, 6.03415)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10995, 0.00563854, 0.311614)
 script = ExtResource("3_h0y1l")
 grid_dimensions = Vector3(7, 1, 8)
 
-[node name="Pickupable" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("5_opq23")
+[node name="fish_bowl" parent="." instance=ExtResource("12_22khc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.980226, 0.994696, 3.74873)
 
-[node name="Pickupable2" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("7_x3b6d")
+[node name="pants" parent="." instance=ExtResource("14_u3pnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3946, 0.270575, 3.19537)
 
-[node name="Pickupable3" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("8_bsy43")
+[node name="pants2" parent="." instance=ExtResource("14_u3pnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3946, 0.567067, 3.19537)
 
-[node name="Pickupable4" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("8_bsy43")
+[node name="banana" parent="." instance=ExtResource("10_iysjq")]
+transform = Transform3D(0.755568, 0, 0.655071, 0, 1, 0, -0.655071, 0, 0.755568, -3.89767, 0.955284, 3.66838)
 
-[node name="Pickupable5" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("8_bsy43")
+[node name="banana2" parent="." instance=ExtResource("10_iysjq")]
+transform = Transform3D(-0.831373, 0, 0.555715, 0, 1, 0, -0.555715, 0, -0.831373, -5.06449, 1.5927, -0.091385)
 
-[node name="Pickupable6" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("5_opq23")
+[node name="dumbbell" parent="." instance=ExtResource("11_33gr7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.70581, 0.297607, -2.39305)
 
-[node name="Pickupable7" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("7_x3b6d")
+[node name="nunpundo_ds" parent="." instance=ExtResource("13_o68vl")]
+transform = Transform3D(0.930788, 0, 0.365559, 0, 1, 0, -0.365559, 0, 0.930788, -3.63582, 1.0399, -3.62468)
 
-[node name="Pickupable8" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("5_opq23")
+[node name="nunpundo_ds2" parent="." instance=ExtResource("13_o68vl")]
+transform = Transform3D(0.815512, 0, 0.57874, 0, 1, 0, -0.57874, 0, 0.815512, 2.22334, 0.166402, -3.46113)
 
-[node name="Pickupable9" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("7_x3b6d")
+[node name="soap" parent="." instance=ExtResource("15_h4cy2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36008, 1.00632, -3.74635)
 
-[node name="Pickupable10" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("8_bsy43")
+[node name="teddy" parent="." instance=ExtResource("16_wgga5")]
+transform = Transform3D(-0.786558, 0.581137, 0.208821, 0, -0.338163, 0.941088, 0.617517, 0.74022, 0.265985, 4.82816, 1.01362, 1.62214)
 
-[node name="Pickupable11" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("8_bsy43")
+[node name="teddy2" parent="." instance=ExtResource("16_wgga5")]
+transform = Transform3D(0.0616536, 0.973457, 0.220408, -0.92551, -0.026916, 0.377767, 0.373672, -0.22728, 0.899285, -4.88756, 1.52662, -3.70425)
 
-[node name="Pickupable12" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("8_bsy43")
+[node name="toothbrush" parent="." instance=ExtResource("17_3t53s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85254, 1.00632, -3.81214)
 
-[node name="Pickupable13" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("5_opq23")
+[node name="ukulele" parent="." instance=ExtResource("18_rg374")]
+transform = Transform3D(0.879358, 0, -0.476161, 0, 1, 0, 0.476161, 0, 0.879358, -4.73113, 0.76376, 1.1618)
 
-[node name="Pickupable14" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("7_x3b6d")
+[node name="umbrella" parent="." instance=ExtResource("19_m42sd")]
+transform = Transform3D(-0.961885, 0, 0.273456, 0, 1, 0, -0.273456, 0, -0.961885, -4.92027, 2.80595, 4.17994)
 
-[node name="Pickupable15" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("5_opq23")
+[node name="umbrella2" parent="." instance=ExtResource("19_m42sd")]
+transform = Transform3D(-0.961885, 0, 0.273456, 0, 1, 0, -0.273456, 0, -0.961885, 4.48589, 0.53942, -0.159096)
 
-[node name="Pickupable16" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("7_x3b6d")
+[node name="toothbrush2" parent="." instance=ExtResource("17_3t53s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51295, 0.62868, 4.0025)
 
-[node name="Pickupable17" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("8_bsy43")
+[node name="toothbrush3" parent="." instance=ExtResource("17_3t53s")]
+transform = Transform3D(0.742105, 0, 0.670284, 0, 1, 0, -0.670284, 0, 0.742105, 1.27327, 1.52072, 3.98771)
 
-[node name="Pickupable18" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("8_bsy43")
+[node name="dumbbell2" parent="." instance=ExtResource("11_33gr7")]
+transform = Transform3D(0.992584, 0, 0.121558, 0, 1, 0, -0.121558, 0, 0.992584, 0.599378, 0.878834, 3.88682)
 
-[node name="Pickupable19" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("8_bsy43")
+[node name="soap2" parent="." instance=ExtResource("15_h4cy2")]
+transform = Transform3D(-0.164634, 0, 0.986355, 0, 1, 0, -0.986355, 0, -0.164634, 0.633739, 1.5018, 4.05223)
 
-[node name="Pickupable20" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("5_opq23")
+[node name="soap3" parent="." instance=ExtResource("15_h4cy2")]
+transform = Transform3D(0.99228, 0, -0.124017, 0, 1, 0, 0.124017, 0, 0.99228, 1.00536, 1.5018, 4.19421)
 
-[node name="Pickupable21" parent="." instance=ExtResource("4_x4bnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
-pickupable = ExtResource("7_x3b6d")
+[node name="pants3" parent="." instance=ExtResource("14_u3pnr")]
+transform = Transform3D(0.0121298, 0, 0.999926, 0, 1, 0, -0.999926, 0, 0.0121298, -1.44939, 0.18462, 4.23043)
 
-[node name="Pickupable22" parent="." instance=ExtResource("10_iysjq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92625, -0.0246105, -0.582427)
+[node name="soap4" parent="." instance=ExtResource("15_h4cy2")]
+transform = Transform3D(-0.362861, 0, -0.931843, 0, 1, 0, 0.931843, 0, -0.362861, 5.17465, 1.00632, -3.46435)
 
-[node name="Pickupable23" parent="." instance=ExtResource("11_33gr7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00163, -0.0246105, -0.269836)
+[node name="ukulele2" parent="." instance=ExtResource("18_rg374")]
+transform = Transform3D(-0.57696, 0, -0.816773, 0, 1, 0, 0.816773, 0, -0.57696, 5.42048, 0.512976, -2.68598)
 
-[node name="Pickupable24" parent="." instance=ExtResource("12_22khc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10201, -0.0246105, -0.424334)
-
-[node name="Pickupable25" parent="." instance=ExtResource("13_o68vl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58324, -0.0246105, 0.362015)
-
-[node name="Pickupable26" parent="." instance=ExtResource("14_u3pnr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71023, -0.0246105, -2.37482)
-
-[node name="Pickupable27" parent="." instance=ExtResource("15_h4cy2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33695, -0.0246105, -1.93627)
-
-[node name="Pickupable28" parent="." instance=ExtResource("16_wgga5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.966, -0.0246105, -1.89942)
-
-[node name="Pickupable29" parent="." instance=ExtResource("17_3t53s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.40122, -0.0246105, -1.662)
-
-[node name="Pickupable30" parent="." instance=ExtResource("18_rg374")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28018, -0.0246105, -1.83988)
-
-[node name="Pickupable31" parent="." instance=ExtResource("19_m42sd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98242, -0.0246105, -3.75836)
+[node name="pants4" parent="." instance=ExtResource("14_u3pnr")]
+transform = Transform3D(0.683796, 0, 0.729673, 0, 1, 0, -0.729673, 0, 0.683796, -0.667944, 0.956947, -3.13396)

@@ -1,6 +1,7 @@
 extends RigidBody3D
 class_name ItemSpawn
 
+const regular_material = preload("res://materials/palette.tres")
 const glow_material = preload("res://materials/glow_mat.tres")
 const PickupableTags = preload("res://src/pickupable_tags.gd").PickupableTags
 
@@ -28,6 +29,7 @@ func rotate_me(cw):
 func _ready():
 	var instance = pickupable.get_random()
 	meshInstance.mesh = instance.mesh
+	meshInstance.set_surface_override_material(0, regular_material)
 	tags = instance.tags
 	
 	collisionShape.shape = meshInstance.mesh.create_convex_shape()
@@ -42,7 +44,7 @@ func _process(delta):
 
 func set_glowing(is_glowing):
 	if (is_glowing):
-		meshInstance.material_override = glow_material
+		meshInstance.set_surface_override_material(0, glow_material)
 	else:
-		meshInstance.material_override = null
+		meshInstance.set_surface_override_material(0, regular_material)
 	
