@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PackingList" load_steps=2 format=3 uid="uid://cgpsa0f2dhla"]
+
+[ext_resource type="Script" path="res://src/packing_list.gd" id="1_l075v"]
+
+[resource]
+script = ExtResource("1_l075v")
+packing_list = Array[int]([])

@@ -1,33 +1,8 @@
 extends Resource
 class_name Pickupable
 
-enum PickupableTags{
-	# Colors
-	Black = 0,
-	White,
-	Red,
-	Green,
-	Blue,
-	Brown,
-	Purple,
-	Yellow,
-	
-	# Size
-	Small = 100,
-	Big,
-	
-	# Utility
-	Hygiene = 200,
-	Clothing,
-	Food,
-	Exercise,
-	Entertainment,
-	
-	# Traits
-	Curved = 300,
-	Heavy,
-	Soft,
-}
+const PickupableTags = preload("res://src/pickupable_tags.gd").PickupableTags
+
 
 ## Ascii map of the shape in the grid. Each row represents the x axis, and each column represents the z axis.[br]
 ## Example representing a "T" shaped object:[br]
