@@ -12,4 +12,4 @@ script = ExtResource("6_sv3tm")
 grid_shape = "1"
 mesh_templates = Array[Mesh]([ExtResource("1_anbsg"), ExtResource("2_hkcx7"), ExtResource("3_irgac"), ExtResource("4_juu3w"), ExtResource("5_nvm1d")])
 mesh_tags = Array[int]([4, 2, 3, 7, 5])
-tags = Array[int]([100, 200])
+tags = Array[int]([100, 200, 303])

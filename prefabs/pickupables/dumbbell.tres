@@ -10,4 +10,4 @@ grid_shape = "101
 101"
 mesh_templates = Array[Mesh]([ExtResource("1_dhm02")])
 mesh_tags = Array[int]([0])
-tags = Array[int]([203, 301])
+tags = Array[int]([203, 301, 303])

@@ -8,7 +8,8 @@
 
 [resource]
 script = ExtResource("6_vy2gu")
-grid_shape = "1"
+grid_shape = "11111
+11101"
 mesh_templates = Array[Mesh]([ExtResource("1_8aup2"), ExtResource("2_j0g4w"), ExtResource("3_efk7q"), ExtResource("4_dsia5")])
 mesh_tags = Array[int]([5, 2, 0, 1])
-tags = Array[int]([101, 302])
+tags = Array[int]([101, 302, 204])

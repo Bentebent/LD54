@@ -19,9 +19,11 @@ enum PickupableTags {
 	Food,
 	Exercise,
 	Entertainment,
+	Weather,
 	
 	# Traits
 	Curved = 300,
 	Heavy,
 	Soft,
+	Hard,
 }
