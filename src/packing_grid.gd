@@ -48,6 +48,8 @@ func remove_placeable(placeable):
 		i += 1
 
 	var rotated_shape = rotate_array(collision_shape, placeable.grid_orientation)
+
+
 	var origin_x = x
 	var origin_z = z
 	
@@ -86,6 +88,10 @@ func check_if_room(placeable, origin_tile):
 		i += 1
 
 	var rotated_shape = rotate_array(collision_shape, placeable.grid_orientation)
+
+	print(rotated_shape)
+
+
 	var origin_x = x
 	var origin_z = z
 	

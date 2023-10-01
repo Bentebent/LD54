@@ -4,10 +4,13 @@ extends CharacterBody3D
 @export var accel = 50
 @export var sensitivity = 0.001
 @export var grab_dist = 3.0
-
+@export var audio_collection = preload("res://prefabs/player_audio_collection.tres")
 @onready var camera : CameraController = $"Camera/Camera3D"
 @onready var hand : Node3D = $"Camera/Camera3D/Hand"
 @onready var game_scene : GameScene = $".."
+@onready var audio_player: AudioStreamPlayer3D = $"AudioStreamPlayer3D"
+
+
 
 var target_velocity = Vector3.ZERO
 var picked_up_item = null
@@ -51,7 +54,6 @@ func _pickup():
 			_drop()
 		
 		picked_up_item = hovered_collider
-		var grid = picked_up_item.get_parent()
 		picked_up_item.get_parent().remove_child(picked_up_item)
 		picked_up_item.position = hand.position
 		picked_up_item.rotation = Quaternion.IDENTITY.get_euler()
@@ -84,6 +86,9 @@ func _drop():
 
 	picked_up_item.apply_impulse(-camera.global_transform.basis.z *2)
 	picked_up_item = null
+	
+	audio_player.stream = audio_collection.yells[0]
+	audio_player.play()
 
 func _place_item():
 	if picked_up_item == null:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/scene_management/game_scene.gd" id="1_jqopj"]
 [ext_resource type="Script" path="res://src/player_controller.gd" id="1_pdl8t"]
-[ext_resource type="PackedScene" uid="uid://dq5civhr64wbd" path="res://scenes/game_ui.tscn" id="2_dab10"]
+[ext_resource type="PackedScene" uid="uid://c7nurnkte5ygw" path="res://scenes/game_ui.tscn" id="2_dab10"]
 [ext_resource type="Script" path="res://src/camera_controller.gd" id="2_o5xr7"]
 [ext_resource type="Script" path="res://src/packing_grid.gd" id="3_h0y1l"]
 [ext_resource type="PackedScene" uid="uid://cseph7hmhady6" path="res://prefabs/pickupable.tscn" id="4_x4bnr"]
@@ -69,6 +69,8 @@ shadow_enabled = true
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01424, 3.89327)
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_pdl8t")
 speed = 10
 
@@ -88,6 +90,13 @@ script = ExtResource("2_o5xr7")
 
 [node name="Hand" type="Node3D" parent="CharacterBody3D/Camera/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.75)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="CharacterBody3D/Camera"]
+current = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CharacterBody3D"]
+volume_db = -37.6
+bus = &"SFX"
 
 [node name="PackingGrid" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37744, 0.00563854, 0)
