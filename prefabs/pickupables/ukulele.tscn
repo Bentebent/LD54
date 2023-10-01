@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5jfoj7ii10k8"]
+
+[ext_resource type="PackedScene" uid="uid://cseph7hmhady6" path="res://prefabs/pickupable.tscn" id="1_ggmqb"]
+[ext_resource type="Resource" uid="uid://c4h2tiak6jr8d" path="res://prefabs/pickupables/ukulele.tres" id="2_pnd8d"]
+[ext_resource type="ArrayMesh" uid="uid://dxiqdxdbu5cuy" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_037.res" id="3_u8v6y"]
+
+[node name="Pickupable" instance=ExtResource("1_ggmqb")]
+pickupable = ExtResource("2_pnd8d")
+
+[node name="Mesh" parent="." index="0"]
+mesh = ExtResource("3_u8v6y")

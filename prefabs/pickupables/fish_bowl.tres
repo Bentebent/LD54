@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Pickupable" load_steps=3 format=3 uid="uid://x31juhjtltxb"]
+
+[ext_resource type="ArrayMesh" uid="uid://din2hkq1gh2x4" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Sphere_001.res" id="1_880hw"]
+[ext_resource type="Script" path="res://src/pickupable.gd" id="6_1ao8n"]
+
+[resource]
+script = ExtResource("6_1ao8n")
+grid_shape = "1111
+1111
+1111
+1111"
+mesh_templates = Array[Mesh]([ExtResource("1_880hw")])
+mesh_tags = Array[int]([4])
+tags = Array[int]([101, 204, 300, 202, 303])

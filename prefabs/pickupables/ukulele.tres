@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Pickupable" load_steps=6 format=3 uid="uid://c4h2tiak6jr8d"]
+
+[ext_resource type="ArrayMesh" uid="uid://c1xwn1kc7slna" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_035.res" id="1_mkxyf"]
+[ext_resource type="ArrayMesh" uid="uid://dxiqdxdbu5cuy" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_037.res" id="2_vsx0o"]
+[ext_resource type="ArrayMesh" uid="uid://yft5pccqcl6w" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_038.res" id="3_7mfgg"]
+[ext_resource type="ArrayMesh" uid="uid://byfmyp4xr1w52" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_039.res" id="4_utg5a"]
+[ext_resource type="Script" path="res://src/pickupable.gd" id="9_4acd7"]
+
+[resource]
+script = ExtResource("9_4acd7")
+grid_shape = "010
+010
+010
+111
+111
+111
+111
+"
+mesh_templates = Array[Mesh]([ExtResource("1_mkxyf"), ExtResource("2_vsx0o"), ExtResource("3_7mfgg"), ExtResource("4_utg5a")])
+mesh_tags = Array[int]([2, 3, 4, 6])
+tags = Array[int]([204, 300, 303])

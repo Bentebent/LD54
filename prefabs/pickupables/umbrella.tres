@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Pickupable" load_steps=10 format=3 uid="uid://1m7l8w1dv4rd"]
+
+[ext_resource type="ArrayMesh" uid="uid://dl27n2yyh0622" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_026.res" id="1_rcfxk"]
+[ext_resource type="ArrayMesh" uid="uid://bmgttxiucj3ym" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_027.res" id="2_mspf7"]
+[ext_resource type="ArrayMesh" uid="uid://brp70jrsordqf" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_028.res" id="3_4aaij"]
+[ext_resource type="ArrayMesh" uid="uid://qj0w50o1pn46" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_029.res" id="4_jbbug"]
+[ext_resource type="ArrayMesh" uid="uid://b2xpct23xe6vn" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_030.res" id="5_uc6p6"]
+[ext_resource type="Script" path="res://src/pickupable.gd" id="6_jvixo"]
+[ext_resource type="ArrayMesh" uid="uid://og8ktq5r3ba6" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_031.res" id="6_rchsx"]
+[ext_resource type="ArrayMesh" uid="uid://raaqhj5lyo03" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_032.res" id="7_8kbgj"]
+[ext_resource type="ArrayMesh" uid="uid://dplplesjxy50g" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_033.res" id="8_eivbo"]
+
+[resource]
+script = ExtResource("6_jvixo")
+grid_shape = "11111
+11111
+00100
+00100
+00100
+01100"
+mesh_templates = Array[Mesh]([ExtResource("1_rcfxk"), ExtResource("2_mspf7"), ExtResource("3_4aaij"), ExtResource("4_jbbug"), ExtResource("5_uc6p6"), ExtResource("6_rchsx"), ExtResource("7_8kbgj"), ExtResource("8_eivbo")])
+mesh_tags = Array[int]([2, 3, 5, 4, 6, 1, 7, 0])
+tags = Array[int]([300, 101, 205])

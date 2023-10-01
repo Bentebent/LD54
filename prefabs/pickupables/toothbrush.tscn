@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://byla5id3mf4dh"]
+
+[ext_resource type="PackedScene" uid="uid://cseph7hmhady6" path="res://prefabs/pickupable.tscn" id="1_mew4k"]
+[ext_resource type="Resource" uid="uid://dtmii04hooncx" path="res://prefabs/pickupables/toothbrush.tres" id="2_kxjty"]
+[ext_resource type="ArrayMesh" uid="uid://bc7mk5q6jnnck" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube.res" id="3_hdwdb"]
+
+[node name="Pickupable" instance=ExtResource("1_mew4k")]
+pickupable = ExtResource("2_kxjty")
+
+[node name="Mesh" parent="." index="0"]
+mesh = ExtResource("3_hdwdb")
