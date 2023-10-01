@@ -2,6 +2,7 @@ extends RigidBody3D
 class_name ItemSpawn
 
 const glow_material = preload("res://materials/glow_mat.tres")
+const PickupableTags = preload("res://src/pickupable_tags.gd").PickupableTags
 
 @export var pickupable: Pickupable
 
@@ -10,6 +11,7 @@ const glow_material = preload("res://materials/glow_mat.tres")
 
 var grid_orientation: int = 0
 var grid_cell: PackingCell = null
+var tags: Array[PickupableTags]  = []
 
 func rotate_me(cw):
 	if cw:
@@ -26,6 +28,8 @@ func rotate_me(cw):
 func _ready():
 	var instance = pickupable.get_random()
 	meshInstance.mesh = instance.mesh
+	tags = instance.tags
+	
 	collisionShape.shape = meshInstance.mesh.create_convex_shape()
 	center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
 	center_of_mass = instance.mesh.get_aabb().get_center()

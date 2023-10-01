@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_qrpth")
-tag_collection_len = [2]
-packing_list = Array[int]([2, 200])
+tag_collection_len = [2, 1]
+packing_list = Array[int]([2, 200, 2])
