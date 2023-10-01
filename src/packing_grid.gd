@@ -2,7 +2,7 @@ extends Node3D
 class_name PackingGrid
 
 @export var grid_dimensions : Vector3 = Vector3.ZERO
-@export var cell_size: Vector3 = Vector3.ZERO
+const cell_size: Vector3 = Vector3(0.2, 0.1, 0.2)
 
 var cell_scene = preload("res://prefabs/packing_cell.tscn")
 var grid = []
