@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq5civhr64wbd"]
+[gd_scene load_steps=3 format=3 uid="uid://dq5civhr64wbd"]
 
 [ext_resource type="Texture2D" uid="uid://c0dvwueemu45u" path="res://assets/notepad.png" id="1_tc5o8"]
 [ext_resource type="Script" path="res://src/ui/notepad_controller.gd" id="1_y3a3r"]
-[ext_resource type="Theme" uid="uid://8q76hlvwir8" path="res://themes/handwriting_notes.tres" id="2_wghr3"]
 
 [node name="game_ui" type="Control"]
 layout_mode = 3
@@ -107,15 +106,7 @@ texture = ExtResource("1_tc5o8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="notepad/todo_list_wrapper/todo_list"]
 layout_mode = 0
-offset_left = 161.0
+offset_left = 170.0
 offset_top = 55.0
-offset_right = 201.0
-offset_bottom = 95.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="notepad/todo_list_wrapper/todo_list/VBoxContainer"]
-self_modulate = Color(0.0509804, 0, 0.364706, 1)
-layout_mode = 2
-theme = ExtResource("2_wghr3")
-bbcode_enabled = true
-text = "[s]Test[/s]"
-fit_content = true
+offset_right = 407.0
+offset_bottom = 494.0

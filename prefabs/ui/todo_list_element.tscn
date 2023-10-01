@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8di03h4pe123"]
+
+[ext_resource type="Theme" uid="uid://8q76hlvwir8" path="res://themes/handwriting_notes.tres" id="1_76fbn"]
+
+[node name="todo_list_element" type="RichTextLabel"]
+self_modulate = Color(0.0509804, 0, 0.364706, 1)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+theme = ExtResource("1_76fbn")
+bbcode_enabled = true
+text = "[s]Test[/s]"
+fit_content = true

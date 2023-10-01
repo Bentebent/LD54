@@ -6,13 +6,16 @@ const animation_speed = 1.5
 
 @onready var todo_list_wrapper: Control = $todo_list_wrapper
 @onready var open_todo_tutorial_text: Control = $open_notepad_tutorial_text
+@onready var element_list_vertical_container: Control = $todo_list_wrapper/todo_list/VBoxContainer
 
 var notepad_visible = false
 var notepad_visible_t = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	set_todo_list(["Hello", "This", "Is", "List?"])
+	
+	set_checked(2)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,3 +38,32 @@ func _process(delta):
 	
 	if (notepad_visible_t >= 1):
 		open_todo_tutorial_text.visible = false
+
+
+const _todo_list_element_scene = preload("res://prefabs/ui/todo_list_element.tscn")
+var _todo_list: Array[RichTextLabel]
+var _todo_list_strings: Array[String]
+
+func set_todo_list(items: Array[String]):
+	# remove all previous elements in vertical list
+	for node in element_list_vertical_container.get_children():
+		node.queue_free()
+	
+	_todo_list.clear()
+	_todo_list_strings.clear()
+	
+	# add new items
+	for item in items:
+		var instance: RichTextLabel = _todo_list_element_scene.instantiate()
+		instance.text = item
+		element_list_vertical_container.add_child(instance)
+		_todo_list.append(instance)
+		_todo_list_strings.append(item)
+
+const strikethrough_format = "[s]%s[/s]"
+func set_checked(item_index: int, is_checked: bool = true):
+	if (_todo_list.size() > 0 and item_index < _todo_list.size() and _todo_list_strings.size() > 0 and item_index < _todo_list_strings.size()):
+		var item_text = _todo_list_strings[item_index]
+		if (is_checked):
+			item_text = strikethrough_format % item_text
+		_todo_list[item_index].text = item_text
