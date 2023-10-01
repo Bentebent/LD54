@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://caq2gvchqphvc"]
+
+[ext_resource type="PackedScene" uid="uid://cseph7hmhady6" path="res://prefabs/pickupable.tscn" id="1_5cxrn"]
+[ext_resource type="Resource" uid="uid://bi518asyk32ih" path="res://prefabs/pickupables/pants.tres" id="2_gm6s2"]
+[ext_resource type="ArrayMesh" uid="uid://cv7qx2xxq2ero" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Cube_006.res" id="3_yuqsm"]
+
+[node name="Pickupable" instance=ExtResource("1_5cxrn")]
+pickupable = ExtResource("2_gm6s2")
+
+[node name="Mesh" parent="." index="0"]
+mesh = ExtResource("3_yuqsm")

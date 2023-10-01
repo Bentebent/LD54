@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm4folowdwit"]
+
+[ext_resource type="PackedScene" uid="uid://cseph7hmhady6" path="res://prefabs/pickupable.tscn" id="1_mwenf"]
+[ext_resource type="Resource" uid="uid://x31juhjtltxb" path="res://prefabs/pickupables/fish_bowl.tres" id="2_y705f"]
+[ext_resource type="ArrayMesh" uid="uid://din2hkq1gh2x4" path="res://assets/models_mesh/models-7df4222ed0e7a3fbf3b18bd8d75a25e6_Sphere_001.res" id="3_1bae6"]
+
+[node name="Pickupable" instance=ExtResource("1_mwenf")]
+pickupable = ExtResource("2_y705f")
+
+[node name="Mesh" parent="." index="0"]
+mesh = ExtResource("3_1bae6")

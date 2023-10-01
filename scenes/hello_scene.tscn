@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0ja7w50g7o6y"]
+[gd_scene load_steps=26 format=3 uid="uid://d0ja7w50g7o6y"]
 
 [ext_resource type="Script" path="res://src/scene_management/game_scene.gd" id="1_jqopj"]
 [ext_resource type="Script" path="res://src/player_controller.gd" id="1_pdl8t"]
@@ -9,6 +9,16 @@
 [ext_resource type="Resource" uid="uid://5mrhp5srcv7b" path="res://prefabs/pickupables/banana.tres" id="5_opq23"]
 [ext_resource type="Resource" uid="uid://bi518asyk32ih" path="res://prefabs/pickupables/pants.tres" id="7_x3b6d"]
 [ext_resource type="Resource" uid="uid://dtmii04hooncx" path="res://prefabs/pickupables/toothbrush.tres" id="8_bsy43"]
+[ext_resource type="PackedScene" uid="uid://og2v7o1pblub" path="res://prefabs/pickupables/banana.tscn" id="10_iysjq"]
+[ext_resource type="PackedScene" uid="uid://dfghsyapxeusx" path="res://prefabs/pickupables/dumbbell.tscn" id="11_33gr7"]
+[ext_resource type="PackedScene" uid="uid://cm4folowdwit" path="res://prefabs/pickupables/fish_bowl.tscn" id="12_22khc"]
+[ext_resource type="PackedScene" uid="uid://coem00t2cr7dc" path="res://prefabs/pickupables/nunpundo_ds.tscn" id="13_o68vl"]
+[ext_resource type="PackedScene" uid="uid://caq2gvchqphvc" path="res://prefabs/pickupables/pants.tscn" id="14_u3pnr"]
+[ext_resource type="PackedScene" uid="uid://b02rxosab7cgo" path="res://prefabs/pickupables/soap.tscn" id="15_h4cy2"]
+[ext_resource type="PackedScene" uid="uid://ck2stgtogjc7y" path="res://prefabs/pickupables/teddy.tscn" id="16_wgga5"]
+[ext_resource type="PackedScene" uid="uid://byla5id3mf4dh" path="res://prefabs/pickupables/toothbrush.tscn" id="17_3t53s"]
+[ext_resource type="PackedScene" uid="uid://c5jfoj7ii10k8" path="res://prefabs/pickupables/ukulele.tscn" id="18_rg374"]
+[ext_resource type="PackedScene" uid="uid://b8cpldj1bc4vn" path="res://prefabs/pickupables/umbrella.tscn" id="19_m42sd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1c3dj"]
 
@@ -172,3 +182,33 @@ pickupable = ExtResource("5_opq23")
 [node name="Pickupable21" parent="." instance=ExtResource("4_x4bnr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0711317, 0.612947, -0.0594893)
 pickupable = ExtResource("7_x3b6d")
+
+[node name="Pickupable22" parent="." instance=ExtResource("10_iysjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92625, -0.0246105, -0.582427)
+
+[node name="Pickupable23" parent="." instance=ExtResource("11_33gr7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00163, -0.0246105, -0.269836)
+
+[node name="Pickupable24" parent="." instance=ExtResource("12_22khc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10201, -0.0246105, -0.424334)
+
+[node name="Pickupable25" parent="." instance=ExtResource("13_o68vl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58324, -0.0246105, 0.362015)
+
+[node name="Pickupable26" parent="." instance=ExtResource("14_u3pnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71023, -0.0246105, -2.37482)
+
+[node name="Pickupable27" parent="." instance=ExtResource("15_h4cy2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33695, -0.0246105, -1.93627)
+
+[node name="Pickupable28" parent="." instance=ExtResource("16_wgga5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.966, -0.0246105, -1.89942)
+
+[node name="Pickupable29" parent="." instance=ExtResource("17_3t53s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.40122, -0.0246105, -1.662)
+
+[node name="Pickupable30" parent="." instance=ExtResource("18_rg374")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28018, -0.0246105, -1.83988)
+
+[node name="Pickupable31" parent="." instance=ExtResource("19_m42sd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98242, -0.0246105, -3.75836)
