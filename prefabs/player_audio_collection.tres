@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://4f4qy4t82e6b"]
+[gd_resource type="Resource" script_class="PlayerAudioCollection" load_steps=3 format=3 uid="uid://4f4qy4t82e6b"]
 
 [ext_resource type="Script" path="res://src/player_audio_collection.gd" id="1_tgx7e"]
 [ext_resource type="AudioStream" uid="uid://k1scnmog2qk0" path="res://assets/audio/yeet-sound-effect.mp3" id="2_lbbog"]

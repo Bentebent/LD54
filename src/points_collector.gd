@@ -6,7 +6,7 @@ signal list_created
 signal item_checked
 signal scene_loaded
 
-var list_one = load("res://prefabs/packing_lists/list_one.tres")
+var list_one = load("res://prefabs/packing_lists/real_list_exe.tres") #load("res://prefabs/packing_lists/list_one.tres")
 const PickupableTags = preload("res://src/pickupable_tags.gd").PickupableTags
 
 var active_list = []
@@ -35,6 +35,7 @@ func _generate_goals(selected_list):
 		var list_item: ListItem = ListItem.new(tag_list)
 		active_list.append(list_item)
 	
+	print(active_list)
 	var items = []
 	for x in active_list:
 		items.append(array_join(x.tags, ", "))

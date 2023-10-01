@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PackingList" load_steps=2 format=3 uid="uid://ci6utxmpir04p"]
+
+[ext_resource type="Script" path="res://src/packing_list.gd" id="1_so6wc"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_so6wc")
+tag_collection_len = Array[int]([3, 2, 2, 1, 1, 1, 2, 0])
+packing_list = Array[int]([0, 301, 203, 5, 302, 4, 204, 100, 200, 2, 3, 302, 202])

@@ -14,7 +14,7 @@ func get_packing_list_collection():
     for tag_count_per_item in tag_collection_len:
         res.append([])
         for i in tag_count_per_item:
-            res[index].append(temp_list.pop_back())
+            res[index].append(temp_list.pop_front())
         
         index += 1
     return res
