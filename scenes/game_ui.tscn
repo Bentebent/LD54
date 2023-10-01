@@ -1,0 +1,121 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq5civhr64wbd"]
+
+[ext_resource type="Texture2D" uid="uid://c0dvwueemu45u" path="res://assets/notepad.png" id="1_tc5o8"]
+[ext_resource type="Script" path="res://src/ui/notepad_controller.gd" id="1_y3a3r"]
+[ext_resource type="Theme" uid="uid://8q76hlvwir8" path="res://themes/handwriting_notes.tres" id="2_wghr3"]
+
+[node name="game_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="crosshair" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="crosshair"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="crosshair"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="notepad" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_y3a3r")
+
+[node name="open_notepad_tutorial_text" type="Label" parent="notepad"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -361.0
+offset_right = -42.0
+offset_bottom = 26.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Press [Space] to open your packing list >>"
+
+[node name="todo_list_wrapper" type="Control" parent="notepad"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="todo_list" type="TextureRect" parent="notepad/todo_list_wrapper"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -436.0
+offset_top = -256.0
+offset_right = 76.0
+offset_bottom = 256.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_tc5o8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="notepad/todo_list_wrapper/todo_list"]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 55.0
+offset_right = 201.0
+offset_bottom = 95.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="notepad/todo_list_wrapper/todo_list/VBoxContainer"]
+self_modulate = Color(0.0509804, 0, 0.364706, 1)
+layout_mode = 2
+theme = ExtResource("2_wghr3")
+bbcode_enabled = true
+text = "[s]Test[/s]"
+fit_content = true
