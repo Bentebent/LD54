@@ -97,8 +97,9 @@ func _place_item():
 	var result = space_state.intersect_ray(pickupableQuery)
 	if result:
 		var other_collider = result.get("collider")
-		hand.remove_child(picked_up_item)
-		get_tree().root.add_child(picked_up_item)
+		if not placing_item:
+			hand.remove_child(picked_up_item)
+			get_tree().root.add_child(picked_up_item)
 		picked_up_item.global_position = other_collider.global_position
 		placing_item = true
 
@@ -106,8 +107,10 @@ func _place_item():
 		grid_cell = other_collider
 	else:
 		picked_up_item.global_position = hand.global_position
-		get_tree().root.remove_child(picked_up_item)
-		hand.add_child(picked_up_item)
+
+		if placing_item:
+			get_tree().root.remove_child(picked_up_item)
+			hand.add_child(picked_up_item)
 
 		picked_up_item.grid_orientation = 0
 		placing_item = false

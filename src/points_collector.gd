@@ -10,7 +10,7 @@ func _ready():
 
 
 func _item_placed(item):
-	print(item)
+	print(item.pickupable.tags)
 
 func _item_removed(item):
-	print(item)
+	print(item.pickupable.tags)
