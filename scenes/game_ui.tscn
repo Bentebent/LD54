@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7nurnkte5ygw"]
+[gd_scene load_steps=6 format=3 uid="uid://c7nurnkte5ygw"]
 
 [ext_resource type="Texture2D" uid="uid://c0dvwueemu45u" path="res://assets/notepad.png" id="1_tc5o8"]
 [ext_resource type="Script" path="res://src/ui/notepad_controller.gd" id="1_y3a3r"]
+[ext_resource type="AudioStream" uid="uid://cqdat8j5ni5cb" path="res://assets/audio/paper_slide.mp3" id="3_iegjq"]
+[ext_resource type="AudioStream" uid="uid://bg0b5sypoxro6" path="res://assets/audio/scribble.mp3" id="4_ex81g"]
+[ext_resource type="AudioStream" uid="uid://b34u0pg48d13m" path="res://assets/audio/scratch.mp3" id="5_1muj3"]
 
 [node name="game_ui" type="Control"]
 layout_mode = 3
@@ -110,3 +113,15 @@ offset_left = 170.0
 offset_top = 55.0
 offset_right = 407.0
 offset_bottom = 494.0
+
+[node name="slide" type="AudioStreamPlayer" parent="notepad"]
+stream = ExtResource("3_iegjq")
+bus = &"SFX"
+
+[node name="scribble" type="AudioStreamPlayer" parent="notepad"]
+stream = ExtResource("4_ex81g")
+bus = &"SFX"
+
+[node name="scratch" type="AudioStreamPlayer" parent="notepad"]
+stream = ExtResource("5_1muj3")
+bus = &"SFX"

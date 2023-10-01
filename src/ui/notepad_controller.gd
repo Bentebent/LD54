@@ -8,6 +8,9 @@ const animation_speed = 1.5
 @onready var todo_list_wrapper: Control = $todo_list_wrapper
 @onready var open_todo_tutorial_text: Control = $open_notepad_tutorial_text
 @onready var element_list_vertical_container: Control = $todo_list_wrapper/todo_list/VBoxContainer
+@onready var slide_player = $slide
+@onready var scribble_player = $scribble
+@onready var scratch = $scratch
 
 var notepad_visible = false
 var notepad_visible_t = 0
@@ -18,8 +21,6 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_todo_list(["Hello", "This", "Is", "List?"])
-	set_checked(2)
 	#PointsCollector.list_created.emit(["poo"])
 	PointsCollector.list_created.connect(set_todo_list)
 	PointsCollector.item_checked.connect(set_checked)
@@ -29,6 +30,7 @@ func _ready():
 func _process(delta):
 	if (Input.is_action_just_pressed("open_notepad")):
 		notepad_visible = !notepad_visible
+		slide_player.play()
 	
 	
 	var target_t = 1 if notepad_visible else 0
@@ -69,6 +71,11 @@ func set_todo_list(items):
 
 const strikethrough_format = "[s]%s[/s]"
 func set_checked(item_index: int, is_checked: bool = true):
+	if is_checked and !scribble_player.playing:
+		scribble_player.play()
+	elif !is_checked and !scribble_player.playing and !scratch.playing:
+		scratch.play()
+
 	if (_todo_list.size() > 0 and item_index < _todo_list.size() and _todo_list_strings.size() > 0 and item_index < _todo_list_strings.size()):
 		var item_text = _todo_list_strings[item_index]
 		if (is_checked):
